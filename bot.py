@@ -6,7 +6,7 @@ import json
 import os
 
 TOKEN = os.getenv("TOKEN")
-CHANNEL_ID = 1481652438346764400
+CHANNEL_ID = 148165243xxx8346764400
 
 intents = discord.Intents.default()
 intents.message_content = True
