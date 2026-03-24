@@ -6,7 +6,7 @@ import json
 import os
 
 TOKEN = os.getenv("TOKEN")
-CHANNEL_ID = 1478505267737006173
+CHANNEL_ID = 1481652438346764400
 
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix="!", intents=intents)
@@ -21,6 +21,9 @@ quiz_vragen = [
     {"vraag": "Who said: Honestly what are we doing? Racing or pingpong?", "antwoord": ["Sebastian Vettel","Vettel","Seb"]},
     {"vraag": "Which driver has most podiums without a win?", "antwoord": ["Nick Heidfeld","Heidfeld"]},
     {"vraag": "Who said: I think Ericsson hit us?", "antwoord": ["Romain Grosjean","Grosjean"]},
+    {"vraag": "Which driver had, at the start of the 2026 season, the most points without a race win", "antwoord": ["Nico Hulkenberg","Hulkenberg","GOAT"]},
+    {"vraag": "Racing kill the radio star! who said the following? That’s for all the kids out there who dream the impossible, you can do it too, man!", "antwoord": ["Lewis Hamilton","Hamilton"]},
+
 ]
 
 vraag_index = 0
