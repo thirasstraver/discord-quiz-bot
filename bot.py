@@ -163,7 +163,7 @@ async def quiz_loop():
             view=QuizView()
         )
 
-        await asyncio.sleep(30)
+        await asyncio.sleep(82800)
 
         correct = huidige_vraag["antwoord"]
         if isinstance(correct,list):
@@ -183,7 +183,7 @@ async def quiz_loop():
 
         await channel.send(leaderboard_text())
 
-        await asyncio.sleep(30)
+        await asyncio.sleep(3600)
 
 # =========================
 # COMMAND
