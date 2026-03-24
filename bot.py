@@ -9,6 +9,7 @@ TOKEN = os.getenv("TOKEN")
 CHANNEL_ID = 1481652438346764400
 
 intents = discord.Intents.default()
+intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 # =========================
@@ -37,10 +38,11 @@ SCORE_FILE = "scores.json"
 # =========================
 
 def load_scores():
-    if os.path.exists(SCORE_FILE):
+    try:
         with open(SCORE_FILE,"r") as f:
             return json.load(f)
-    return {}
+    except:
+        return {}
 
 def save_scores():
     with open(SCORE_FILE,"w") as f:
@@ -147,7 +149,7 @@ async def quiz_loop():
     global huidige_vraag,vraag_index,antwoorden_gegeven
 
     await bot.wait_until_ready()
-    channel = bot.get_channel(CHANNEL_ID)
+    channel = await bot.fetch_channel(CHANNEL_ID)
 
     while True:
 
