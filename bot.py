@@ -18,7 +18,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 quiz_vragen = [
     {"vraag": "Who said: Must be the water", "antwoord": ["Bryan Bozzi","Bozzi"]},
-    {"vraag": "What does DRS stand for?", "antwoord": ["Drag Reduction System","DRS System"]},
+    {"vraag": "What does DRS stand for?", "antwoord": ["Drag Reduction System","DRS System","Daniel Ricciardo Supremacy"]},
     {"vraag": "Who said: Honestly what are we doing? Racing or pingpong?", "antwoord": ["Sebastian Vettel","Vettel","Seb"]},
     {"vraag": "Which driver has most podiums without a win?", "antwoord": ["Nick Heidfeld","Heidfeld"]},
     {"vraag": "Who said: I think Ericsson hit us?", "antwoord": ["Romain Grosjean","Grosjean"]},
