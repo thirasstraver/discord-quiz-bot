@@ -17,6 +17,8 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 # =========================
 
 quiz_vragen = [
+    {"vraag": "In what year did lewis Hamilton win his first wdc?", "antwoord": "2008"},
+    {"vraag": "In what year did mika hakkinen win his first wdc?", "antwoord": "1998"},
     {"vraag": "What's the maximum amount of points a driver can get in 2026, assuming no more races will be cancelled in or past may", "antwoord": "598"},
     {"vraag": "Racing kill the radio star! Which *driver* said the following? Engineer: Sainz 1,4 behind. Driver: You want me to let him past as well?", "antwoord": ["Lewis Hamilton","Hamilton"]},
     {"vraag": "Which driver has driven the most races before his first race win?", "antwoord": ["SERGIO CHECOOO PEREEZZZZ","Sergio Perez","Checo","Perez", "Checo Perez","Sergio Checo Perez"]},
@@ -31,13 +33,13 @@ quiz_vragen = [
     {"vraag": "Racing kill the radio star! who said the following? Are you upset with me or something", "antwoord": ["Lewis Hamilton", "hamilton"]},
     {"vraag": "Which (recent) f1 driver shares the record for most points without a podium?", "antwoord": ["Yuki Tsunoda","Yuki","tsunoda"]},
     {"vraag": "Racing kill the radio star (press conference edidion)! who said the following? You gotta be either blind or stupid to not see me...", "antwoord": ["Juan Pablo Montoya", "Montoya"]},
-    {"vraag": "In what year did lewis Hamilton win his first wdc?", "antwoord": "2008"},
+
     {"vraag": "Racing kill the radio star! who said the following? Yeah that's fine. send them my regards :)!", "antwoord": ["Max Verstappen", "Verstappen"]},
     {"vraag": "In which city/town is Racing Bulls based?", "antwoord": "Faenza"},
     {"vraag": "Racing kill the radio star! In 2017, who said the following? I'm gonna pee in your seat", "antwoord": ["Jenson Button", "Button"]},
     {"vraag": "In 2007 f1 had a dutch f1 team, spyker. What’s this team called now?", "antwoord": ["Aston Martin","Aston Martin F1"]},
     {"vraag": "Racing kill the radio star! who said the following? Ahh, I got damage! I GOT DAMAGEE!! Argh", "antwoord": ["Max Verstappen", "Verstappen"]},
-    {"vraag": "In what year did mika hakkinen win his first wdc?", "antwoord": "1998"},
+ 
     {"vraag": "Racing kill the radio star! who said the following? WHO THE ****! Oh, I'm out!! Crashed! Somebody hit me in the ******* rear! Turn 2... And then somebody hit me in the ******* reag again in turn 3! for ***** sake", "antwoord": ["Fernando Alonso", "Alonso"]},
     {"vraag": "What’s the full name of the track that hosts the us gp?", "antwoord": "Circuit of the Americas"},
     {"vraag": "Racing kill the radio star! who said the following? All the time you have to leave a space", "antwoord": ["Fernando Alonso", "Alonso"]},
@@ -87,7 +89,7 @@ def antwoord_correct(user_answer, correct):
         return True
 
     for a in antwoorden:
-        if difflib.SequenceMatcher(None, user_answer, a).ratio() >= 0.65:
+        if difflib.SequenceMatcher(None, user_answer, a).ratio() >= 0.67:
             return True
 
     return False
