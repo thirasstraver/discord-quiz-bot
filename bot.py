@@ -89,7 +89,7 @@ def antwoord_correct(user_answer, correct):
         return True
 
     for a in antwoorden:
-        if difflib.SequenceMatcher(None, user_answer, a).ratio() >= 0.67:
+        if difflib.SequenceMatcher(None, user_answer, a).ratio() >= 0.75:
             return True
 
     return False
