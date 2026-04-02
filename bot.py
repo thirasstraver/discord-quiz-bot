@@ -85,12 +85,21 @@ def antwoord_correct(user_answer, correct):
     else:
         antwoorden = [correct.lower()]
 
+    # 🔢 check: als ALLE antwoorden cijfers zijn → exacte match
+    if all(a.isdigit() for a in antwoorden):
+        return user_answer in antwoorden
+
+    # normale exacte check
     if user_answer in antwoorden:
         return True
 
+    # fuzzy check alleen voor tekst
     for a in antwoorden:
-        if difflib.SequenceMatcher(None, user_answer, a).ratio() >= 0.75:
+        similarity = difflib.SequenceMatcher(None, user_answer, a).ratio()
+        if similarity >= 0.75:
             return True
+
+    return False
 
     return False
 
