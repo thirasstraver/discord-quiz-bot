@@ -6,7 +6,7 @@ import json
 import os
 
 TOKEN = os.getenv("TOKEN")
-CHANNEL_ID = 1478505267737006173
+CHANNEL_ID = 1481652438346764400
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -17,8 +17,6 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 # =========================
 
 quiz_vragen = [
-    {"vraag": "In what year did lewis Hamilton win his first wdc?", "antwoord": "2008"},
-    {"vraag": "In what year did mika hakkinen win his first wdc?", "antwoord": "1998"},
     {"vraag": "What's the maximum amount of points a driver can get in 2026, assuming no more races will be cancelled in or past may", "antwoord": "598"},
     {"vraag": "Racing kill the radio star! Which *driver* said the following? Engineer: Sainz 1,4 behind. Driver: You want me to let him past as well?", "antwoord": ["Lewis Hamilton","Hamilton"]},
     {"vraag": "Which driver has driven the most races before his first race win?", "antwoord": ["SERGIO CHECOOO PEREEZZZZ","Sergio Perez","Checo","Perez", "Checo Perez","Sergio Checo Perez"]},
@@ -30,23 +28,23 @@ quiz_vragen = [
     {"vraag": "Which team won the 2025 DHL Fastest Pit Stop award?", "antwoord": "Ferrari"},
     {"vraag": "Racing kill the radio star! who said the following? All the time you have to leave a space", "antwoord": ["Fernando Alonso", "Alonso"]},
     {"vraag": "What team is based in endstone?", "antwoord": "Alpine"},
-    {"vraag": "Racing kill the radio star! who said the following? Are you upset with me or something", "antwoord": ["Lewis Hamilton", "hamilton"]},
+    {"vraag": "Racing kill the radio star! who said the following? Are you upset with me or something", "antwoord": ["Lewis Hamilton", "lewis", "hamilton"]},
     {"vraag": "Which (recent) f1 driver shares the record for most points without a podium?", "antwoord": ["Yuki Tsunoda","Yuki","tsunoda"]},
     {"vraag": "Racing kill the radio star (press conference edidion)! who said the following? You gotta be either blind or stupid to not see me...", "antwoord": ["Juan Pablo Montoya", "Montoya"]},
-
+    {"vraag": "In what year did lewis Hamilton win his first wdc?", "antwoord": "2008"},
     {"vraag": "Racing kill the radio star! who said the following? Yeah that's fine. send them my regards :)!", "antwoord": ["Max Verstappen", "Verstappen"]},
     {"vraag": "In which city/town is Racing Bulls based?", "antwoord": "Faenza"},
     {"vraag": "Racing kill the radio star! In 2017, who said the following? I'm gonna pee in your seat", "antwoord": ["Jenson Button", "Button"]},
     {"vraag": "In 2007 f1 had a dutch f1 team, spyker. What’s this team called now?", "antwoord": ["Aston Martin","Aston Martin F1"]},
     {"vraag": "Racing kill the radio star! who said the following? Ahh, I got damage! I GOT DAMAGEE!! Argh", "antwoord": ["Max Verstappen", "Verstappen"]},
- 
+    {"vraag": "In what year did mika hakkinen win his first wdc?", "antwoord": "1998"},
     {"vraag": "Racing kill the radio star! who said the following? WHO THE ****! Oh, I'm out!! Crashed! Somebody hit me in the ******* rear! Turn 2... And then somebody hit me in the ******* reag again in turn 3! for ***** sake", "antwoord": ["Fernando Alonso", "Alonso"]},
     {"vraag": "What’s the full name of the track that hosts the us gp?", "antwoord": "Circuit of the Americas"},
-    {"vraag": "Racing kill the radio star! who said the following? All the time you have to leave a space", "antwoord": ["Fernando Alonso", "Alonso"]},
+    {"vraag": "Racing kill the radio star! who said the following? All the time you have to leave a space", "antwoord": ["Fernando Alonso", "Nando", "Alonso"]},
     {"vraag": "In which country was the first ever night F1 race hosted?", "antwoord": "Singapore"},
     {"vraag": "Racing kill the radio star (meme edition)! who said the following? I knew this I studied this at school! I knew what this meant, but not anymore... I forgot", "antwoord": ["Carlos Sainz Vázquez de Castro Cenamor Rincón Rebollo Birto Moreno de Aranda de Anteriuga Tiapera Deltún", "Carlos sainz jr", "carlos sainz","sainz","smooth operator"]},
     {"vraag": "What’s the last name (surname) of a father and a son that both won the wdc?", "antwoord": ["Rosberg","Keke rosberg","Nico rosberg"]},
-
+    {"vraag": "In which country was the first ever GP with f1 rules hosted, in 1946?", "antwoord": "Italy"},
 ]
 
 vraag_index = 0
@@ -96,7 +94,7 @@ def antwoord_correct(user_answer, correct):
     # fuzzy check alleen voor tekst
     for a in antwoorden:
         similarity = difflib.SequenceMatcher(None, user_answer, a).ratio()
-        if similarity >= 0.75:
+        if similarity >= 0.82:
             return True
 
     return False
@@ -217,7 +215,7 @@ async def quiz_loop():
             view=QuizView()
         )
 
-        await asyncio.sleep(30)  # 23 uur is 82800
+        await asyncio.sleep(82800)  # 23 uur is 82800
 
         correct = huidige_vraag["antwoord"]
         if isinstance(correct, list):
@@ -237,7 +235,7 @@ async def quiz_loop():
 
         await channel.send(leaderboard_text())
 
-        await asyncio.sleep(10)  # pauze tussen vragen, uur is 3600
+        await asyncio.sleep(3600)  # pauze tussen vragen, uur is 3600
 
 # =========================
 # COMMAND
